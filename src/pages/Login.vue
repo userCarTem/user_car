@@ -2,7 +2,7 @@
   <div class="login">
     <div class="img">
       <img src="../assets/images/icon_nomal@3x.png" alt="" @click="HomePage">
-    </div>
+    </div>       
     <!-- <group> -->
     <flexbox :gutter="0">
       <flexbox-item :span="1/12">
@@ -49,7 +49,8 @@ export default {
   },
   methods: {
     HomePage() {
-      this.$router.push('/myself')
+      this.$router.push('/search')
+      this.$store.commit('titleTyle','首页')
     }
   }
 }

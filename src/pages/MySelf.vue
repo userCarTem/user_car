@@ -7,6 +7,9 @@
 <script>
 export default {
     name: 'Myself',
+    created(){
+        console.info(this.$route);
+    },
     data() {
         return {
 
