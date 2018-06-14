@@ -1,15 +1,19 @@
 <template>
     <div class="nav">
+       
         <nav class="mui-bar mui-bar-tab">
             <a class="mui-tab-item " :class="{ 'mui-active': isType==1 }" href="">
+                <nav-popver :data='AssessmentList' :isBlock='isAssessmentList'></nav-popver>
                 <span class="mui-icon iconfont icon-qian"></span>
                 <span class="mui-tab-label">评估报价</span>
             </a>
             <a class="mui-tab-item">
+                 <nav-popver :data='sharingList' :isBlock='isSharingList'></nav-popver> 
                 <span class="mui-icon iconfont icon-che"></span>
                 <span class="mui-tab-label">车源共享</span>
             </a>
-            <a class="mui-tab-item" @click="myrrr">
+            <a class="mui-tab-item">
+                 
                 <span class="mui-icon mui-icon-camera"></span>
                 <span class="mui-tab-label">离线拍照</span>
             </a>
@@ -21,38 +25,64 @@
     </div>
 </template>
 <script>
+import NavPopver from '@/components/NavPopver'
 export default {
-    name: 'NavBar',
-    props: {
-        data:{
-
-        }
-    },
-    created() {
-        this.isType = this.$store.state.type
-    },
-    data() {
-        return {
-            isType: ''
-        }
-    },
-    methods: {
-        Myself() {
-            this.$router.push('/myself')
-            this.$store.commit('titleTyle', '我的')
-        },
-        myrrr() {
-            this.$emit('mo', 'ww')
-        }
+  name: 'NavBar',
+  created() {
+    this.isType = this.$store.state.type
+  },
+  components: {
+    NavPopver,
+  },
+  data() {
+    return {
+      isType: '',
+      isAssessmentList:false,
+      isSharingList:true,
+      AssessmentList:[
+          {
+              listName:'车辆评估',
+              path:''
+          },
+          {
+              listName:'车辆入库',
+              path:''
+          },
+          {
+              listName:'已入库车辆',
+              path:''
+          },
+      ],
+      sharingList:[
+          {
+              listName:'车源共享',
+              path:''
+          },
+          {
+              listName:'已关注车辆',
+              path:''
+          },
+          {
+              listName:'车源调整',
+              path:''
+          }
+      ]
     }
+  },
+  methods: {
+    Myself() {
+      this.$router.push('/myself')
+    },
+  },
 }
 </script>
 <style lang="scss" scoped>
-@import 'vue-awesome-mui/mui/dist/css/mui.css';
-@import '../commonicon/css/iconfont.css';
 .nav {
   .mui-bar-tab .mui-tab-item .mui-icon {
     top: -2px;
+  }
+  .mui-tab-item {
+    //   position: relative;
   }
 }
 </style>

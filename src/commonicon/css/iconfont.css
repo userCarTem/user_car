@@ -12,7 +12,14 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-wenjianjia:before { content: "\e629"; }
+
+.icon-ren:before { content: "\e619"; }
+
 .icon-che:before { content: "\e610"; }
 
 .icon-qian:before { content: "\e662"; }
 
+.icon-tubiaofenxi:before { content: "\e668"; }
+
+.icon-home:before { content: "\e73f"; }

@@ -2,14 +2,17 @@
   <div class="login">
     <div class="img">
       <img src="../assets/images/icon_nomal@3x.png" alt="" @click="HomePage">
-    </div>       
+    </div>
     <!-- <group> -->
     <flexbox :gutter="0">
       <flexbox-item :span="1/12">
         <img src="../assets/images/user_@2x.png" alt="" width="25px">
       </flexbox-item>
       <flexbox-item :span="5/6">
-        <x-input label-width="4rem" placeholder="请输入你的账号" style=""></x-input>
+        <div class="input_text">
+          <input type="text" placeholder="请输入你的账号">
+        </div>
+        <!-- <x-input label-width="4rem" placeholder="请输入你的账号" style=" margin-bottom: 0;"></x-input> -->
       </flexbox-item>
     </flexbox>
     <flexbox :gutter="0">
@@ -17,7 +20,10 @@
         <img src="../assets/images/password_@2x.png" alt="" width="25px">
       </flexbox-item>
       <flexbox-item :span="5/6">
-        <x-input label-width="4rem" placeholder="请输入你的密码"></x-input>
+        <div class="input_text">
+          <input type="text" placeholder="请输入你的密码">
+        </div>
+        <!-- <x-input label-width="4rem" placeholder="请输入你的密码"></x-input> -->
       </flexbox-item>
     </flexbox>
 
@@ -50,7 +56,7 @@ export default {
   methods: {
     HomePage() {
       this.$router.push('/search')
-      this.$store.commit('titleTyle','首页')
+      this.$store.commit('titleTyle', '首页')
     }
   }
 }
@@ -58,31 +64,42 @@ export default {
 
 <style lang='scss' scoped>
 .login {
-    width: 80%;
-    margin: 0 auto;
-    .img {
-        margin-top: 4rem;
-        margin-bottom: 2rem;
+  height: 100%;
+  padding: 0 1rem;
+  margin: 0 auto;
+  background: #fff;
+  .img {
+    text-align: center;
+    padding-top: 4rem;
+    margin-bottom: 2rem;
+  }
+  input[type='text'] {
+    margin-bottom: 0;
+    border: none;
+    font-size: 1rem;
+  }
+  .weui-btn{
+    font-size: 1rem;
+  }
+  .login_btn {
+    margin-top: 1rem;
+  }
+  .input_text {
+    border-bottom: 1px solid #ccc;
+  }
+  .weui-cell:before {
+    border-top: none;
+    border-bottom: 1px solid #ccc;
+  }
+  .custom-primary-red {
+    border-radius: 99px !important;
+    border-color: #ce3c39 !important;
+    color: #ce3c39 !important;
+    &:active {
+      border-color: rgba(206, 60, 57, 0.6) !important;
+      color: rgba(206, 60, 57, 0.6) !important;
+      background-color: transparent;
     }
-    .login_btn {
-        margin-top: 1rem;
-    }
-    .weui-cell {
-        border-bottom: 1px solid #ccc;
-    }
-    .weui-cell:before {
-        border-top: none;
-        border-bottom: 1px solid #ccc;
-    }
-    .custom-primary-red {
-        border-radius: 99px !important;
-        border-color: #ce3c39 !important;
-        color: #ce3c39 !important;
-        &:active {
-            border-color: rgba(206, 60, 57, 0.6) !important;
-            color: rgba(206, 60, 57, 0.6) !important;
-            background-color: transparent;
-        }
-    }
+  }
 }
 </style>
