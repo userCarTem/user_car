@@ -11,6 +11,7 @@
       <flexbox-item :span="5/6">
         <div class="input_text">
           <input type="text" placeholder="请输入你的账号">
+           <!-- <von-radio ></von-radio> -->
         </div>
         <!-- <x-input label-width="4rem" placeholder="请输入你的账号" style=" margin-bottom: 0;"></x-input> -->
       </flexbox-item>
@@ -37,16 +38,10 @@
 </template>
 
 <script>
-import { XButton, XInput, Group, Flexbox, FlexboxItem, Divider } from 'vux'
+
 export default {
   name: 'Login',
   components: {
-    XButton,
-    XInput,
-    Group,
-    Flexbox,
-    FlexboxItem,
-    Divider
   },
   data() {
     return {

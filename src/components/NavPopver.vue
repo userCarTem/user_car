@@ -44,6 +44,7 @@ export default {
   border-radius: 5px;
   position: absolute;
   bottom: 64px;
+  color: rgba(17, 1, 1, 0.719);
 
   li {
     padding: 0.5rem;
