@@ -11,7 +11,7 @@ export default {
 </script>
 
 <style>
-@import 'vue-awesome-mui/mui/dist/css/mui.css';
+/* @import 'vue-awesome-mui/mui/dist/css/mui.css'; */
 @import './commonicon/css/iconfont.css';
 @import './style.css';
 #app {

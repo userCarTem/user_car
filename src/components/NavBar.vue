@@ -1,34 +1,31 @@
 <template>
     <div class="nav">
-       
-        <nav class="mui-bar mui-bar-tab">
-            <a class="mui-tab-item " :class="{ 'mui-active': isType== 0 }" href="#Popover_0">
-                <!-- <nav-popver :data='AssessmentList' :isBlock='isAssessmentList'></nav-popver> -->
-                <span class="mui-icon iconfont icon-qian"></span>
-                <span class="mui-tab-label">评估报价</span>
-            </a>
-            <a class="mui-tab-item" href="#Popover_1">
-                <!-- <nav-popver :data='sharingList' :isBlock='isSharingList'></nav-popver>  -->
-                <span class="mui-icon iconfont icon-che"></span>
-                <span class="mui-tab-label">车源共享</span>
-            </a>
-            <a class="mui-tab-item" href="#Popover_2">
-                <span class="mui-icon mui-icon-camera"></span>
-                <span class="mui-tab-label">离线拍照</span>
-            </a>
-            <a class="mui-tab-item" @click="Myself" href="#Popover_3">
-                <span class=" mui-icon mui-icon-contact"></span>
-                <span class="mui-tab-label">我</span>
-            </a>
-        </nav>
-        <div :id="'Popover_'+ index" class="mui-popover mui-bar-popover" v-for="(Assessment,index) in AssessmentList" :key="index">
-            <div class="mui-popover-arrow"></div>
-            <ul class="mui-table-view">
-                <li class="mui-table-view-cell" v-for="Assess in Assessment" :key="Assess.listName">
-                    <a href="/">{{Assess.listName}}</a>
-                </li>
-            </ul>
-        </div>
+        <tabbar>
+            <tabbar-item @on-item-click="tabBar(0)">
+                <span slot="icon" class="mui-icon iconfont icon-qian">
+
+                </span>
+                <span slot="icon">
+                    <nav-popver :data='AssessmentList' :isBlock='this.$store.state.isAssessmentList' @tab-item="tabBar"></nav-popver>
+                </span>
+
+                <span slot="label">评估报价</span>
+            </tabbar-item>
+            <tabbar-item @on-item-click="tabBar(1)">
+                <span slot="icon" class="mui-icon iconfont icon-che">
+                    <nav-popver :data='sharingList' :isBlock='this.$store.state.isSharingList' @tab-item="tabBar"></nav-popver>
+                </span>
+                <span slot="label">车源共享</span>
+            </tabbar-item>
+            <tabbar-item  @on-item-click="tabBar(2)">
+                <span slot="icon" class="mui-icon mui-icon-camera"></span>
+                <span slot="label">离线拍照</span>
+            </tabbar-item>
+            <tabbar-item badge="" @on-item-click="tabBar(3)">
+                <span slot="icon" class=" mui-icon mui-icon-contact"></span>
+                <span slot="label">我</span>
+            </tabbar-item>
+        </tabbar>
     </div>
 </template>
 <script>
@@ -38,17 +35,17 @@ export default {
     created() {
         this.isType = this.$store.state.type
     },
+    mounted() {
+
+    },
     components: {
         NavPopver,
     },
     data() {
         return {
-            isType: '0',
-            isAssessmentList: false,
-            isSharingList: true,
+            myself: '',
             AssessmentList: [
-                [
-                      {
+                {
                     listName: '车辆评估',
                     path: ''
                 },
@@ -59,24 +56,7 @@ export default {
                 {
                     listName: '已入库车辆',
                     path: ''
-                },
-                ],
-              [
-                {
-                    listName: '车源共享',
-                    path: ''
-                },
-                {
-                    listName: '已关注车辆',
-                    path: ''
-                },
-                {
-                    listName: '车源调整',
-                    path: ''
                 }
-            ],
-            [],
-            []
             ],
             sharingList: [
                 {
@@ -96,24 +76,33 @@ export default {
     },
     methods: {
         Myself() {
-            this.$router.push('/myself')
+
         },
+        tabBar(i) {
+            this.$store.commit('AssessmentList', false)
+            this.$store.commit('SharingList', false)
+            if (i == 0) {
+                this.$store.commit('AssessmentList', true)
+            } else if (i == 1) {
+                this.$store.commit('SharingList', true)
+            } else if (i == 2) {
+                this.$router.push('/offlinephoto')
+            } else {
+                this.$router.push('/myself')
+            }
+
+        }
     },
 }
 </script>
 <style lang="scss" scoped>
+@import '../../node_modules/vue-awesome-mui/mui/dist/css/mui.css';
 .nav {
-  .mui-bar-tab .mui-tab-item .mui-icon {
-    top: -2px;
-  }
-  .mui-tab-item {
-    //   position: relative;
-  }
-  .mui-bar-popover {
-    width: 40%;
-  }
-  .mui-popover.mui-bar-popover .mui-table-view{
-      width: 130px;
+  a {
+    color: #999999;
+    .weui-tabbar__icon {
+      height: 24px;
+    }
   }
 }
 </style>

@@ -21,7 +21,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-
+@import '../../node_modules/vue-awesome-mui/mui/dist/css/mui.css';
 .search {
     .mui-search .mui-placeholder{
         text-align: left;

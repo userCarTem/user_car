@@ -10,7 +10,7 @@
 
         <ul :class="[index == 4 ? 'mui-table-view' : 'mui-table-view mui-table-view-chevron']" v-for="(btn,index) in buts" :key="index">
             <li class="mui-table-view-cell" :class="[index == 4 ? 'mar_top' : '']">
-                <a id="" href="javascript:(0);" :class="[ index == 4 ? 'sign_out' : 'mui-navigate-right mui-bg-green']">
+                <a id="" :href="btn.path" :class="[ index == 4 ? 'sign_out' : 'mui-navigate-right mui-bg-green']">
                     <span :class="btn.class" style="font-size:18px" v-if="index != 4"></span>
                     {{btn.name}}
                 </a>
@@ -23,7 +23,7 @@
 export default {
     name: 'Myself',
     created() {
-        console.info(this.$route);
+
     },
     data() {
         return {
@@ -31,12 +31,12 @@ export default {
                 {
                     name: '商品化基础管理',
                     class: 'mui-icon-extra mui-icon-extra-class',
-                    path: ''
+                    path: '#/commodity'
                 },
                 {
                     name: '用户信息管理',
                     class: 'mui-icon iconfont icon-ren',
-                    path: ''
+                    path: '#/userManagement'
                 },
                 {
                     name: '基础信息更新',
@@ -60,6 +60,7 @@ export default {
 </script>
 
  <style lang="scss" scoped>
+@import '../../node_modules/vue-awesome-mui/mui/dist/css/mui.css';
 .my_self {
   .mui-body {
     text-align: center;
@@ -69,11 +70,14 @@ export default {
   .mui-table-view-chevron {
     margin-top: 1rem;
   }
-  .sign_out {
-    text-align: center;
-    color: red;
-    background-color: #c0c0c0;
+  .mui-table-view {
+    .sign_out {
+      text-align: center;
+      color: red;
+      background-color: #c0c0c0;
+    }
   }
+
   .mar_top {
     margin-top: 1rem;
   }

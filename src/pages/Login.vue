@@ -4,29 +4,31 @@
       <img src="../assets/images/icon_nomal@3x.png" alt="" @click="HomePage">
     </div>
     <!-- <group> -->
-    <flexbox :gutter="0">
-      <flexbox-item :span="1/12">
-        <img src="../assets/images/user_@2x.png" alt="" width="25px">
-      </flexbox-item>
-      <flexbox-item :span="5/6">
-        <div class="input_text">
-          <input type="text" placeholder="请输入你的账号">
-           <!-- <von-radio ></von-radio> -->
-        </div>
-        <!-- <x-input label-width="4rem" placeholder="请输入你的账号" style=" margin-bottom: 0;"></x-input> -->
-      </flexbox-item>
-    </flexbox>
-    <flexbox :gutter="0">
-      <flexbox-item :span="1/12">
-        <img src="../assets/images/password_@2x.png" alt="" width="25px">
-      </flexbox-item>
-      <flexbox-item :span="5/6">
-        <div class="input_text">
-          <input type="text" placeholder="请输入你的密码">
-        </div>
-        <!-- <x-input label-width="4rem" placeholder="请输入你的密码"></x-input> -->
-      </flexbox-item>
-    </flexbox>
+    <div class="form">
+      <flexbox :gutter="0">
+        <flexbox-item :span="1/12">
+          <img src="../assets/images/user_@2x.png" alt="" width="25px">
+        </flexbox-item>
+        <flexbox-item :span="5/6">
+          <div class="input_text">
+            <input type="text" placeholder="请输入你的账号">
+            <!-- <von-radio ></von-radio> -->
+          </div>
+          <!-- <x-input label-width="4rem" placeholder="请输入你的账号" style=" margin-bottom: 0;"></x-input> -->
+        </flexbox-item>
+      </flexbox>
+      <flexbox :gutter="0">
+        <flexbox-item :span="1/12">
+          <img src="../assets/images/password_@2x.png" alt="" width="25px">
+        </flexbox-item>
+        <flexbox-item :span="5/6">
+          <div class="input_text">
+            <input type="text" placeholder="请输入你的密码">
+          </div>
+          <!-- <x-input label-width="4rem" placeholder="请输入你的密码"></x-input> -->
+        </flexbox-item>
+      </flexbox>
+    </div>
 
     <!-- </group> -->
     <div class="login_btn">
@@ -60,9 +62,16 @@ export default {
 <style lang='scss' scoped>
 .login {
   height: 100%;
-  padding: 0 1rem;
+  padding: 0 2rem;
   margin: 0 auto;
   background: #fff;
+  .vux-flexbox {
+    margin-bottom: .8rem;
+  }
+  .form{
+    width: 85%;
+    margin: 0 auto;
+  }
   .img {
     text-align: center;
     padding-top: 4rem;
@@ -71,16 +80,18 @@ export default {
   input[type='text'] {
     margin-bottom: 0;
     border: none;
-    font-size: 1rem;
+    font-size: .9rem;
   }
-  .weui-btn{
+  .weui-btn {
     font-size: 1rem;
   }
   .login_btn {
-    margin-top: 1rem;
+    margin-top: 2rem;
   }
   .input_text {
+    width: 100%;
     border-bottom: 1px solid #ccc;
+    padding: 0.5rem;
   }
   .weui-cell:before {
     border-top: none;

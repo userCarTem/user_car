@@ -15,13 +15,17 @@ import {
   Divider,
   Tabbar,
   TabbarItem,
-  Cell
+  Cell,
+  XHeader,
+  Icon,
+  CheckIcon,
+  Checklist
 } from 'vux'
 Vue.config.productionTip = false
 
 Vue.use(Vuex)
 Vue.use(Mui)
-
+Vue.component('xHeader', XHeader)
 Vue.component('group', Group)
 Vue.component('xButton', XButton)
 Vue.component('xInput', XInput)
@@ -31,13 +35,19 @@ Vue.component('divider', Divider)
 Vue.component('tabbar', Tabbar)
 Vue.component('tabbarItem', TabbarItem)
 Vue.component('cell', Cell)
+Vue.component('icon', Icon)
+Vue.component('check-icon', CheckIcon)
+Vue.component('checklist', Checklist)
 
 /* eslint-disable no-new */
 let title = localStorage.getItem('user_car_title')
 const store = new Vuex.Store({
   state: {
     type: '',
-    title
+    title,
+    isAssessmentList: false,
+    isSharingList: false,
+    isCancelImg: true
   },
   mutations: {
     tabbarType (state, payload) {
@@ -46,6 +56,15 @@ const store = new Vuex.Store({
     titleTyle (state, payload) {
       localStorage.setItem('user_car_title', payload)
       state.title = payload
+    },
+    AssessmentList (state, payload) {
+      state.isAssessmentList = payload
+    },
+    SharingList (state, payload) {
+      state.isSharingList = payload
+    },
+    CancelImg (state, payload) {
+      state.isCancelImg = payload
     }
   }
 })

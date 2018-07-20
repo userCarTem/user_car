@@ -1,39 +1,28 @@
 <template>
-    <div class="popver" v-if="isBlock">
-        <ul>
-            <li v-for="(item,index) in data" :key="index" :class="[index != data.length-1 ? 'active' : '']">{{item.listName}}</li>      
-        </ul>
-        <div class="mui-popover-arrow" style=""></div>
-    </div>
+  <div class="popver" v-if="isBlock">
+    <ul>
+      <li v-for="(item,index) in data" :key="index" :class="[index != data.length-1 ? 'active' : '']" @click.stop="linkUrl(5)">{{item.listName}}</li>
+    </ul>
+    <div class="mui-popover-arrow" style=""></div>
+  </div>
 </template>
 <script>
 export default {
   name: 'popver',
-  props:['data','isBlock'],
+  props: ['data', 'isBlock'],
+  created() {
+   
+  },
   data() {
     return {
-      list: [
-        {
-          name: 'wwwww',
-        },
-        {
-          name: 'wwwww',
-        },
-        {
-          name: 'wwwww',
-        },
-         {
-          name: 'wwwww',
-        },
-         {
-          name: 'wwwww',
-        },
-         {
-          name: 'wwwww',
-        },
-      ],
+      list: [],
     }
   },
+  methods: {
+    linkUrl(i) {
+      this.$emit('tab-item')
+    }
+  }
 }
 </script>
  <style lang="scss" scoped>
@@ -43,8 +32,10 @@ export default {
   background: #fff;
   border-radius: 5px;
   position: absolute;
-  bottom: 64px;
+  bottom: 45px;
+  left: -30px;
   color: rgba(17, 1, 1, 0.719);
+  font-size: 1rem;
 
   li {
     padding: 0.5rem;
