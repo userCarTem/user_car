@@ -1,5 +1,6 @@
 <template>
     <div class="nav">
+      
         <tabbar>
             <tabbar-item @on-item-click="tabBar(0)">
                 <span slot="icon" class="mui-icon iconfont icon-qian">
@@ -47,15 +48,15 @@ export default {
             AssessmentList: [
                 {
                     listName: '车辆评估',
-                    path: ''
+                    path: '/vehicleEntry'
                 },
                 {
                     listName: '车辆入库',
-                    path: ''
+                    path: '/notinstorage'
                 },
                 {
                     listName: '已入库车辆',
-                    path: ''
+                    path: '/havebeenput'
                 }
             ],
             sharingList: [

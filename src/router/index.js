@@ -7,6 +7,14 @@ import Search from '@/pages/HomePageSearch'
 import Commodity from '@/pages/Commodity'
 import userManagement from '@/pages/userManagement'
 import OffLinePhoto from '@/pages/OffLinePhoto'
+import Information from '@/pages/Information'
+import HaveBeenPut from '@/pages/HaveBeenPut'
+import Manufactor from '@/pages/Manufactor'
+import CarName from '@/pages/CarName'
+import NotInStorage from '@/pages/NotInStorage'
+import BrandSelection from '@/pages/BrandSelection'
+import VehicleEntry from '@/pages/VehicleEntry'
+import RapidAssessment from '@/pages/RapidAssessment'
 Vue.use(Router)
 
 export default new Router({
@@ -70,6 +78,70 @@ export default new Router({
           component: OffLinePhoto,
           meta: {
             title: '车辆信息'
+          }
+        },
+        {
+          path: '/information',
+          name: 'information',
+          component: Information,
+          meta: {
+            title: '信息确认'
+          }
+        },
+        {
+          path: '/havebeenput',
+          name: 'havebeenput',
+          component: HaveBeenPut,
+          meta: {
+            title: '已入库车辆'
+          }
+        },
+        {
+          path: '/manufactor',
+          name: 'manufactor',
+          component: Manufactor,
+          meta: {
+            title: '厂家选择'
+          }
+        },
+        {
+          path: '/carname',
+          name: 'carname',
+          component: CarName,
+          meta: {
+            title: '车名选择'
+          }
+        },
+        {
+          path: '/notinstorage',
+          name: 'notinstorage',
+          component: NotInStorage,
+          meta: {
+            title: '未入库车辆查询'
+          }
+        },
+        {
+          path: '/brandselection',
+          name: 'brandselection',
+          component: BrandSelection,
+          meta: {
+            title: '品牌选择'
+          }
+        },
+        {
+          path: '/vehicleEntry',
+          name: 'vehicleEntry',
+          component: VehicleEntry,
+          meta: {
+            title: '车辆信息录入'
+          }
+        },
+        {
+          path: '/rapidassessment',
+          name: 'RapidAssessment',
+          component: RapidAssessment,
+          meta: {
+            title: '简易基本信息'
           }
         }
       ]

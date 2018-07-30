@@ -19,10 +19,15 @@ import {
   XHeader,
   Icon,
   CheckIcon,
-  Checklist
+  Checklist,
+  CellBox,
+  ViewBox,
+  Datetime,
+  DatetimePlugin
 } from 'vux'
-Vue.config.productionTip = false
 
+Vue.config.productionTip = false
+Vue.use(DatetimePlugin)
 Vue.use(Vuex)
 Vue.use(Mui)
 Vue.component('xHeader', XHeader)
@@ -38,6 +43,9 @@ Vue.component('cell', Cell)
 Vue.component('icon', Icon)
 Vue.component('check-icon', CheckIcon)
 Vue.component('checklist', Checklist)
+Vue.component('cell-box', CellBox)
+Vue.component('view-box', ViewBox)
+Vue.component('datetime', Datetime)
 
 /* eslint-disable no-new */
 let title = localStorage.getItem('user_car_title')

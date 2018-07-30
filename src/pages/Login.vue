@@ -40,11 +40,9 @@
 </template>
 
 <script>
-
 export default {
   name: 'Login',
-  components: {
-  },
+  components: {},
   data() {
     return {
       name: '登录',
@@ -54,8 +52,8 @@ export default {
     HomePage() {
       this.$router.push('/search')
       this.$store.commit('titleTyle', '首页')
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -66,9 +64,9 @@ export default {
   margin: 0 auto;
   background: #fff;
   .vux-flexbox {
-    margin-bottom: .8rem;
+    margin-bottom: 0.8rem;
   }
-  .form{
+  .form {
     width: 85%;
     margin: 0 auto;
   }
@@ -80,7 +78,7 @@ export default {
   input[type='text'] {
     margin-bottom: 0;
     border: none;
-    font-size: .9rem;
+    font-size: 0.9rem;
   }
   .weui-btn {
     font-size: 1rem;

@@ -1,7 +1,9 @@
 <template>
   <div class="popver" v-if="isBlock">
     <ul>
-      <li v-for="(item,index) in data" :key="index" :class="[index != data.length-1 ? 'active' : '']" @click.stop="linkUrl(5)">{{item.listName}}</li>
+      <li v-for="(item,index) in data" :key="index" :class="[index != data.length-1 ? 'active' : '']" @click.stop="linkUrl(item)">
+        {{item.listName}}
+      </li>
     </ul>
     <div class="mui-popover-arrow" style=""></div>
   </div>
@@ -11,7 +13,7 @@ export default {
   name: 'popver',
   props: ['data', 'isBlock'],
   created() {
-   
+
   },
   data() {
     return {
@@ -21,6 +23,7 @@ export default {
   methods: {
     linkUrl(i) {
       this.$emit('tab-item')
+      this.$router.push(i.path)
     }
   }
 }
