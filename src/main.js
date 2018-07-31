@@ -23,7 +23,8 @@ import {
   CellBox,
   ViewBox,
   Datetime,
-  DatetimePlugin
+  DatetimePlugin,
+  Confirm
 } from 'vux'
 
 Vue.config.productionTip = false
@@ -46,6 +47,7 @@ Vue.component('checklist', Checklist)
 Vue.component('cell-box', CellBox)
 Vue.component('view-box', ViewBox)
 Vue.component('datetime', Datetime)
+Vue.component('confirm', Confirm)
 
 /* eslint-disable no-new */
 let title = localStorage.getItem('user_car_title')

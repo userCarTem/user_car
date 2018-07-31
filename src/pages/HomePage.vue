@@ -15,12 +15,22 @@
             <router-view></router-view>
             <nav-bar v-if="isNavTar"></nav-bar>
         </view-box>
+
+        <div v-transfer-dom>
+            <confirm v-model="isShow" :title="title" @on-cancel="onCancel" @on-confirm="onConfirm" @on-show="onShow" @on-hide="onHide">
+                <!-- <p style="text-align:center;">44444</p> -->
+            </confirm>
+        </div>
     </div>
 </template>
 <script>
 import NavBar from '@/components/NavBar'
+import { TransferDomDirective as TransferDom } from 'vux'
 export default {
     name: 'HomePage',
+    directives: {
+        TransferDom
+    },
     created() {
         this.titleType()
 
@@ -43,7 +53,9 @@ export default {
             isDelete: false,  //删除图标
             isCancelImg: true, //判断显示删除图标 还是 取消 
             isVehicleEntry: false, //判断 历史车辆
-            isFastGeneral: false // 快速评估 返回按钮
+            isFastGeneral: false, // 快速评估 返回按钮
+            isShow:false,           //点击返回按钮 弹出 提示框
+            title:''
         }
     },
     components: {
@@ -100,7 +112,27 @@ export default {
         },
         FastGeneral() {
             console.info("快速评估");
-        }
+            this.isShow = true
+            if(this.$store.state.title == "简易基本信息"){
+                this.title = '您还没有完成快速评估，确定要离开该页面？'
+            }
+        },
+        onCancel() {
+            console.log('on cancel')
+        },
+        onConfirm(msg) {
+            console.log('on confirm')
+            this.$router.back()
+            // if (msg) {
+            //     alert(msg)
+            // }
+        },
+        onHide() {
+            console.log('on hide')
+        },
+        onShow() {
+            console.log('on show')
+        },
     }
 }
 </script>
