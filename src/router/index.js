@@ -15,6 +15,7 @@ import NotInStorage from '@/pages/NotInStorage'
 import BrandSelection from '@/pages/BrandSelection'
 import VehicleEntry from '@/pages/VehicleEntry'
 import RapidAssessment from '@/pages/RapidAssessment'
+import Adjustment from '@/pages/Source-adjustment'
 Vue.use(Router)
 
 export default new Router({
@@ -142,6 +143,14 @@ export default new Router({
           component: RapidAssessment,
           meta: {
             title: '简易基本信息'
+          }
+        },
+        {
+          path: '/adjustment',
+          name: 'Adjustment',
+          component: Adjustment,
+          meta: {
+            title: '车源调整'
           }
         }
       ]

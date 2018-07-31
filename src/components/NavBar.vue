@@ -70,7 +70,7 @@ export default {
                 },
                 {
                     listName: '车源调整',
-                    path: ''
+                    path: '/adjustment'
                 }
             ]
         }
