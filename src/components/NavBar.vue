@@ -7,7 +7,7 @@
 
                 </span>
                 <span slot="icon">
-                    <nav-popver :data='AssessmentList' :isBlock='this.$store.state.isAssessmentList' @tab-item="tabBar"></nav-popver>
+                    <nav-popver  :data='AssessmentList' :isBlock='this.$store.state.isAssessmentList' @tab-item="tabBar"></nav-popver>
                 </span>
 
                 <span slot="label">评估报价</span>
