@@ -24,6 +24,9 @@ import {
   ViewBox,
   Datetime,
   DatetimePlugin,
+  Card,
+  Checker,
+  CheckerItem,
   Confirm
 } from 'vux'
 
@@ -47,8 +50,10 @@ Vue.component('checklist', Checklist)
 Vue.component('cell-box', CellBox)
 Vue.component('view-box', ViewBox)
 Vue.component('datetime', Datetime)
+Vue.component('card', Card)
+Vue.component('checker', Checker)
+Vue.component('checkeritem', CheckerItem)
 Vue.component('confirm', Confirm)
-
 /* eslint-disable no-new */
 let title = localStorage.getItem('user_car_title')
 const store = new Vuex.Store({
